@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk rootProject.android.compileSdk
+
+    defaultConfig {
+        minSdk rootProject.android.minSdk
+        targetSdk rootProject.android.targetSdk
+        versionCode rootProject.android.versionCode
+        versionName rootProject.android.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    api rootProject.depsLibs.core_ktx
+    api rootProject.depsLibs.appcompat
+    api rootProject.depsLibs.material
+
+    //状态栏
+    api rootProject.depsLibs.immersionbar
+    api rootProject.depsLibs.immersionbar_components
+    api rootProject.depsLibs.immersionbar_ktx
+
+    //lottie动画
+    api rootProject.depsLibs.lottie
+
+    //侧滑返回
+    api rootProject.depsLibs.bGASwipeBackLayout_android
+}
