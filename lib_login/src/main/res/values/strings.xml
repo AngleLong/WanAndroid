@@ -1,1 +1,9 @@
-<resources></resources>
+<resources>
+    <string name="string_user_name">用户名称</string>
+    <string name="string_psd">用户密码</string>
+    <string name="string_psd_again">再次用户密码</string>
+    <string name="string_login">登陆</string>
+    <string name="string_register">注册</string>
+    <string name="string_login_link"><u>登陆</u></string>
+    <string name="string_register_link"><u>注册</u></string>
+</resources>

@@ -29,7 +29,13 @@ ext {
 
             lottie = "4.2.2",
 
-            bGASwipeBackLayout_android = "2.0.2"
+            bGASwipeBackLayout_android = "2.0.2",
+
+            //jetpack
+            databinding_runtime = "7.0.2",
+            lifecycle_viewmodel_ktx = "2.4.0",
+            lifecycle_runtime_ktx = "2.3.1",
+            lifecycle_livedata_ktx = "2.4.0",
     ]
 
     depsLibs = [
@@ -59,6 +65,12 @@ ext {
             lottie                    : "com.airbnb.android:lottie:$lottie",
 
             //侧滑返回
-            bGASwipeBackLayout_android: "com.github.bingoogolapple:BGASwipeBackLayout-Android:$bGASwipeBackLayout_android"
+            bGASwipeBackLayout_android: "com.github.bingoogolapple:BGASwipeBackLayout-Android:$bGASwipeBackLayout_android",
+
+            //jetpack
+            databinding_runtime       : "androidx.databinding:databinding-runtime:$databinding_runtime",
+            lifecycle_viewmodel_ktx   : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_viewmodel_ktx",
+            lifecycle_runtime_ktx     : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_runtime_ktx",
+            lifecycle_livedata_ktx    : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_livedata_ktx",
     ]
 }

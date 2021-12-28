@@ -1,44 +1,49 @@
 package com.angle.lib_common.base
 
+import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper
 import com.angle.lib_common.AdapterScreenUtils
 import com.angle.lib_common.R
 import com.gyf.immersionbar.ktx.immersionBar
+import android.widget.EditText
+
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+
 
 /**
  * 所有Activity的基类
  */
-abstract class BaseActivity : AppCompatActivity(), BGASwipeBackHelper.Delegate {
+abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity(),
+    BGASwipeBackHelper.Delegate {
 
-    //    private val mSwipeBackHelper by lazy {
-//        Log.e("TAG", ":1 " )
-//        BGASwipeBackHelper(this, this).apply {
-//            //侧滑返回是否可用
-//            setSwipeBackEnable(isEnableSwipe())
-//
-//            //仅支持左侧返回
-//            setIsOnlyTrackingLeftEdge(true)
-//        }
-//    }
     private var mSwipeBackHelper: BGASwipeBackHelper? = null
 
+    var dataBinding: DB? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //增加侧滑返回
         initSwipeBackFinish()
-
-        Log.e("TAG", ":2 ")
         super.onCreate(savedInstanceState)
 
-        setContentView(configLayoutRes())
+        //设置布局
+        dataBinding = DataBindingUtil.setContentView(this, configLayoutRes())
 
         //设置状态栏
         initStatusBar()
+
+        //规范相应的配置
+        initConfig()
     }
+
 
     private fun initSwipeBackFinish() {
         Log.e("TAG", ":1 ")
@@ -72,11 +77,60 @@ abstract class BaseActivity : AppCompatActivity(), BGASwipeBackHelper.Delegate {
 //        }
     }
 
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        if (ev.action == MotionEvent.ACTION_DOWN) {
+            val v: View? = currentFocus
+            if (isShouldHideInput(v, ev)) {
+                val imm: InputMethodManager =
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                if (v != null) {
+                    imm.hideSoftInputFromWindow(v.windowToken, 0)
+                }
+            }
+            return super.dispatchTouchEvent(ev)
+        }
+        // 必不可少，否则所有的组件都不会有TouchEvent了
+        return if (window.superDispatchTouchEvent(ev)) {
+            true
+        } else onTouchEvent(ev)
+    }
+
+    /**
+     * 是否显示键盘
+     *
+     * @param v
+     * @param event
+     * @return
+     */
+    open fun isShouldHideInput(v: View?, event: MotionEvent): Boolean {
+        if (v != null && v is EditText) {
+            val leftTop = intArrayOf(0, 0)
+            // 获取输入框当前的location位置
+            v.getLocationInWindow(leftTop)
+            val left = leftTop[0]
+            val top = leftTop[1]
+            val bottom: Int = top + v.getHeight()
+            val right: Int = left + v.getWidth()
+            if (event.x > right && event.y > top && event.y < bottom) {
+                //如果是输入框右边的部分就保留
+                return false
+            }
+            return !(event.x > left && event.x < right && event.y > top && event.y < bottom)
+        }
+        return false
+    }
+
     /**
      * 设置相应的资源ID
      */
     @LayoutRes
     abstract fun configLayoutRes(): Int
+
+    /**
+     * 规范相应的配置
+     */
+    abstract fun initConfig()
 
     open fun isEnableSwipe(): Boolean {
         return true

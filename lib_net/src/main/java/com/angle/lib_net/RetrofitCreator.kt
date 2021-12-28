@@ -31,7 +31,7 @@ object RetrofitCreator {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(WanConverterFactory.create())
             .build()
     }
 }

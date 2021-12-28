@@ -45,4 +45,10 @@ dependencies {
 
     //侧滑返回
     api rootProject.depsLibs.bGASwipeBackLayout_android
+
+    //jetpack
+    api rootProject.depsLibs.databinding_runtime
+    api rootProject.depsLibs.lifecycle_viewmodel_ktx
+    api rootProject.depsLibs.lifecycle_runtime_ktx
+    api rootProject.depsLibs.lifecycle_livedata_ktx
 }
