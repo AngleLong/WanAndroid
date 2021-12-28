@@ -13,8 +13,8 @@ class LoginActivity : BaseActivity() {
 
     override fun initStatusBar() {
         immersionBar {
-            statusBarColor(R.color.white)
             statusBarDarkFont(true)
+            statusBarView(findViewById(R.id.topTitle))
         }
 
         findViewById<LottieAnimationView>(R.id.loginLAV).setOnClickListener {

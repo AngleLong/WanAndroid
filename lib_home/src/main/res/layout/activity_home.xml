@@ -4,6 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#223344"
     tools:context=".HomeActivity">
 
+    <View
+        android:id="@+id/topTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#223344"
+        app:layout_constraintBottom_toTopOf="@id/titleTv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        app:layout_constraintTop_toBottomOf="@id/topTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

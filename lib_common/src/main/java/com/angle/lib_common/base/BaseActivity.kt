@@ -44,32 +44,32 @@ abstract class BaseActivity : AppCompatActivity(), BGASwipeBackHelper.Delegate {
         Log.e("TAG", ":1 ")
         mSwipeBackHelper = BGASwipeBackHelper(this, this).apply {
             Log.e("TAG", ":3 ${isEnableSwipe()}")
-//            setSwipeBackEnable(isEnableSwipe())
-//            setIsOnlyTrackingLeftEdge(true)
-            // 设置滑动返回是否可用。默认值为 true
-            setSwipeBackEnable(true);
-            // 设置是否仅仅跟踪左侧边缘的滑动返回。默认值为 true
-            setIsOnlyTrackingLeftEdge(true);
-            // 设置是否是微信滑动返回样式。默认值为 true
-            setIsWeChatStyle(true);
-            // 设置阴影资源 id。默认值为 R.drawable.bga_sbl_shadow
-            setShadowResId(R.drawable.bga_sbl_shadow);
-            // 设置是否显示滑动返回的阴影效果。默认值为 true
-            setIsNeedShowShadow(true);
-            // 设置阴影区域的透明度是否根据滑动的距离渐变。默认值为 true
-            setIsShadowAlphaGradient(true);
-            // 设置触发释放后自动滑动返回的阈值，默认值为 0.3f
-            setSwipeBackThreshold(0.3f);
-            // 设置底部导航条是否悬浮在内容上，默认值为 false
-            setIsNavigationBarOverlap(false);
+            setSwipeBackEnable(isEnableSwipe())
+            setIsOnlyTrackingLeftEdge(true)
+//            // 设置滑动返回是否可用。默认值为 true
+//            setSwipeBackEnable(true);
+//            // 设置是否仅仅跟踪左侧边缘的滑动返回。默认值为 true
+//            setIsOnlyTrackingLeftEdge(true);
+//            // 设置是否是微信滑动返回样式。默认值为 true
+            setIsWeChatStyle(false);
+//            // 设置阴影资源 id。默认值为 R.drawable.bga_sbl_shadow
+//            setShadowResId(R.drawable.bga_sbl_shadow);
+//            // 设置是否显示滑动返回的阴影效果。默认值为 true
+//            setIsNeedShowShadow(true);
+//            // 设置阴影区域的透明度是否根据滑动的距离渐变。默认值为 true
+//            setIsShadowAlphaGradient(true);
+//            // 设置触发释放后自动滑动返回的阈值，默认值为 0.3f
+//            setSwipeBackThreshold(0.3f);
+//            // 设置底部导航条是否悬浮在内容上，默认值为 false
+//            setIsNavigationBarOverlap(false);
         }
     }
 
     open fun initStatusBar() {
-        immersionBar {
-            statusBarColor(R.color.purple_200)
-            navigationBarColor(R.color.purple_200)
-        }
+//        immersionBar {
+//            statusBarColor(R.color.purple_200)
+//            navigationBarColor(R.color.purple_200)
+//        }
     }
 
     /**
