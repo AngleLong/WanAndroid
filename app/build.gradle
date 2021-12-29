@@ -40,7 +40,7 @@ dependencies {
     implementation rootProject.depsLibs.appcompat
     implementation rootProject.depsLibs.material
 
-    implementation project(path: ':lib_net')
+
     implementation project(path: ':lib_home')
     implementation project(path: ':lib_login')
 }

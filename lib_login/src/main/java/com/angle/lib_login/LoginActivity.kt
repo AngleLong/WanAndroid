@@ -1,5 +1,6 @@
 package com.angle.lib_login
 
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -29,7 +30,16 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
         loginViewModel = ViewModelProvider(this,
             LoginViewModelFactory(RetrofitFactory.getDefaultService(LoginConfigUtils.baseUrl,
-                clazz = LoginApi::class.java)))[LoginViewModel::class.java]
+                clazz = LoginApi::class.java)))[LoginViewModel::class.java].apply {
+
+            loginModel.data.observe(this@LoginActivity) {
+                Log.e("TAG", "正确: $it")
+            }
+
+            loginModel.error.observe(this@LoginActivity) {
+                Log.e("TAG", "错误: $it")
+            }
+        }
     }
 
     inner class LoginOpt {

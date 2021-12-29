@@ -51,4 +51,8 @@ dependencies {
     api rootProject.depsLibs.lifecycle_viewmodel_ktx
     api rootProject.depsLibs.lifecycle_runtime_ktx
     api rootProject.depsLibs.lifecycle_livedata_ktx
+
+    api project(path: ':lib_net')
+    
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

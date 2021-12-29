@@ -118,5 +118,12 @@
             android:textSize="40pt"
             app:layout_constraintTop_toBottomOf="@id/registerTv" />
 
+<!--        <com.angle.lib_common.widget.ProgressButton-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="30pt"-->
+<!--            android:layout_marginTop="30pt"-->
+<!--            android:layout_marginRight="30pt"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/loginBtn" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
