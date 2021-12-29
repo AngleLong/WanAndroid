@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -12,6 +14,12 @@ android {
         targetSdk rootProject.android.targetSdk
         versionCode rootProject.android.versionCode
         versionName rootProject.android.versionName
+
+        kapt {
+            javacOptions {
+                option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
+            }
+        }
     }
 
     buildTypes {
@@ -36,10 +44,12 @@ android {
 }
 
 dependencies {
-    implementation rootProject.depsLibs.core_ktx
-    implementation rootProject.depsLibs.appcompat
-    implementation rootProject.depsLibs.material
+//    implementation rootProject.depsLibs.core_ktx
+//    implementation rootProject.depsLibs.appcompat
+//    implementation rootProject.depsLibs.material
 
+    implementation rootProject.depsLibs.hilt_android
+    kapt rootProject.depsLibs.hilt_android_compiler
 
     implementation project(path: ':lib_home')
     implementation project(path: ':lib_login')

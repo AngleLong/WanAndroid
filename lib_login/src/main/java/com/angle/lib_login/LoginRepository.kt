@@ -1,6 +1,8 @@
 package com.angle.lib_login
 
-class LoginRepository(private val loginApi: LoginApi) {
+import javax.inject.Inject
+
+class LoginRepository @Inject constructor(private val loginApi: LoginApi) {
 
     suspend fun requestLogin(userName: String, userPwd: String): LoginBean =
         loginApi.login(userName, userPwd)

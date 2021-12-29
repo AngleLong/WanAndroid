@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+//apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk rootProject.android.compileSdk
@@ -15,10 +16,14 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                arguments += [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
         kapt {
+            javacOptions {
+                option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
+            }
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
             }
@@ -47,7 +52,8 @@ android {
 }
 
 dependencies {
-    kapt rootProject.depsLibs.arouter_compiler
+    implementation rootProject.depsLibs.hilt_android
+    kapt rootProject.depsLibs.hilt_android_compiler
 
     api project(path: ':lib_common')
     api project(path: ':lib_router')

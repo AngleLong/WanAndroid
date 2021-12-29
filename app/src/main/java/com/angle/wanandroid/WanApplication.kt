@@ -4,7 +4,9 @@ import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
 import com.angle.lib_common.AppConfig
 import com.angle.lib_common.base.BaseApplication
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class WanApplication : BaseApplication() {
 
     override fun onCreate() {

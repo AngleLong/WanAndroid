@@ -2,7 +2,6 @@ package com.angle.lib_login
 
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.angle.lib_common.base.BaseActivity
@@ -15,6 +14,7 @@ import com.gyf.immersionbar.ktx.immersionBar
 @Route(path = LOGIN_LOGIN)
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
+    //    private val loginViewModel: LoginViewModel by viewModels()
     private var loginViewModel: LoginViewModel? = null
 
     override fun configLayoutRes(): Int = R.layout.activity_login
@@ -32,9 +32,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             LoginViewModelFactory(RetrofitFactory.getDefaultService(LoginConfigUtils.baseUrl,
                 clazz = LoginApi::class.java)))[LoginViewModel::class.java].apply {
 
-            loginModel.data.observe(this@LoginActivity) {
-                Log.e("TAG", "正确: $it")
-            }
+                loginModel.data.observe(this@LoginActivity) {
+                    Log.e("TAG", "正确: $it")
+                }
 
             loginModel.error.observe(this@LoginActivity) {
                 Log.e("TAG", "错误: $it")
