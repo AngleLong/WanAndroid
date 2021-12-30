@@ -24,6 +24,5 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     }
 
     override fun initConfig() {
-        TODO("Not yet implemented")
     }
 }

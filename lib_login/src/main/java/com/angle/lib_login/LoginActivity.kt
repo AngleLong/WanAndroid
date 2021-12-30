@@ -3,30 +3,22 @@ package com.angle.lib_login
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.angle.lib_common.base.BaseActivity
+import com.angle.lib_common.base.LoadingStatus.FINISH
+import com.angle.lib_common.base.LoadingStatus.START
+import com.angle.lib_common.base.WanBaseActivity
 import com.angle.lib_common.utils.showToast
 import com.angle.lib_login.databinding.ActivityLoginBinding
-import com.angle.lib_login.hilt.Test
-import com.angle.lib_net.RetrofitFactory
 import com.angle.lib_router.LOGIN_LOGIN
+import com.angle.lib_router.openHomePage
 import com.gyf.immersionbar.ktx.immersionBar
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @Route(path = LOGIN_LOGIN)
 @AndroidEntryPoint
-class LoginActivity : BaseActivity<ActivityLoginBinding>() {
+class LoginActivity : WanBaseActivity<ActivityLoginBinding>() {
 
     private val loginViewModel by viewModels<LoginViewModel>()
-//    private var loginViewModel: LoginViewModel? = null
-
-//    @Inject
-//    lateinit var truck: com.angle.wanandroid.Truck
-
-    @Inject
-    lateinit var test: Test
 
     override fun configLayoutRes(): Int = R.layout.activity_login
 
@@ -37,26 +29,33 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     }
 
     override fun initConfig() {
-//        truck.deliver()]
-        test.testMethod()
 
         dataBinding?.loginOpt = LoginOpt()
 
-//        loginViewModel = ViewModelProvider(this,
-//            LoginViewModelFactory(RetrofitFactory.getDefaultService(LoginConfigUtils.baseUrl,
-//                clazz = LoginApi::class.java)))[LoginViewModel::class.java].apply {
-//
-//                loginModel.data.observe(this@LoginActivity) {
-//                    Log.e("TAG", "正确: $it")
-//                }
-//
-//            loginModel.error.observe(this@LoginActivity) {
-//                Log.e("TAG", "错误: $it")
-//            }
-//        }
-
         loginViewModel.loginModel.data.observe(this@LoginActivity) {
             Log.e("TAG", "正确: $it")
+
+            //TODO 这里保存好用户的相关信息,直接跳转到主页去
+            openHomePage()
+        }
+
+        loginViewModel.loginModel.error.observe(this@LoginActivity) {
+            Log.e("TAG", "错误: $it")
+            it.errorMsg?.showToast(this)
+        }
+
+        loginViewModel.loginModel.loadingStatus.observe(this) {
+            when (it) {
+                START -> {
+                    showDialog()
+                }
+                FINISH -> {
+                    dismissDialog()
+                }
+                else -> {
+                    dismissDialog()
+                }
+            }
         }
     }
 
@@ -109,9 +108,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                 }
 
                 if (isRegister) {
-                    loginViewModel?.register(userStr, psdStr, againPsdStr)
+                    loginViewModel.register(userStr, psdStr, againPsdStr)
                 } else {
-                    loginViewModel?.login(userStr, psdStr)
+                    loginViewModel.login(userStr, psdStr)
                 }
             }
         }
