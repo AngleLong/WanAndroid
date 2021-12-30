@@ -19,7 +19,9 @@
 
 ## [Arouter](https://github.com/alibaba/ARouter/blob/master/README_CN.md)
 
-1. [使用 ARouter 实现登录拦截](https://lishide.github.io/2020/06/05/Android-ARouter-Login-Interceptor/)
+1. [使用 ARouter 实现登录拦截](https://lishide.github.io/2020/06/05/Android-ARouter-Login-Interceptor/)s
+2. 关于组件化使用的一些注意事项
+    1. 只要是使用的组件都要在gradle中添加 ```kapt rootProject.depsLibs.arouter_compiler```
 
 ## 组件化
 

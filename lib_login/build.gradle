@@ -55,6 +55,8 @@ dependencies {
     implementation rootProject.depsLibs.hilt_android
     kapt rootProject.depsLibs.hilt_android_compiler
 
+    kapt rootProject.depsLibs.arouter_compiler
+
     api project(path: ':lib_common')
     api project(path: ':lib_router')
     api project(path: ':lib_net')
