@@ -5,6 +5,7 @@ dependencyResolutionManagement {
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
         maven { url 'https://jitpack.io' }
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
 }
 rootProject.name = "WanAndroid"
@@ -14,3 +15,4 @@ include ':lib_home'
 include ':lib_common'
 include ':lib_login'
 include ':lib_router'
+include ':lib_image'

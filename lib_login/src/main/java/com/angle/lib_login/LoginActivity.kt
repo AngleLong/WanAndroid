@@ -28,6 +28,14 @@ class LoginActivity : WanBaseActivity<ActivityLoginBinding>() {
         }
     }
 
+    override fun initView() {
+        super.initView()
+        if (BuildConfig.DEBUG) {
+            dataBinding?.userEt?.setText("zhangdaxian")
+            dataBinding?.psdEt?.setText("a1234567")
+        }
+    }
+
     override fun initConfig() {
 
         dataBinding?.loginOpt = LoginOpt()
@@ -57,6 +65,8 @@ class LoginActivity : WanBaseActivity<ActivityLoginBinding>() {
                 }
             }
         }
+
+        // TODO: 2022/1/11 这里还有注册的逻辑没有写
     }
 
     inner class LoginOpt {

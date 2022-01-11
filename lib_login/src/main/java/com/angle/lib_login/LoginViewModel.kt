@@ -20,27 +20,15 @@ class LoginViewModel @Inject constructor(private val loginRepository: LoginRepos
     private val _loginModel = BaseModel<LoginBean>()
     val loginModel = _loginModel
 
-    fun login(userName: String, userPwd: String) {
-//        viewModelScope.launch {
-//            try {
-//                val result = loginRepository.requestLogin(userName, userPwd)
-//                Log.e("TAG", "login: $result")
-//            } catch (e: Exception) {
-//                Log.e("TAG", "login: 异常 ${e.toString()}")
-//            }
-//        }
+    private val _register = BaseModel<RegisterBean>()
+    val register = _register
 
+    fun login(userName: String, userPwd: String) {
         loadDataState(_loginModel, loader = { loginRepository.requestLogin(userName, userPwd) })
     }
 
     fun register(userName: String, userPwd: String, againPsd: String) {
-        viewModelScope.launch {
-            try {
-                val result = loginRepository.requestRegister(userName, userPwd, againPsd)
-                Log.e("TAG", "login: $result")
-            } catch (e: Exception) {
-                Log.e("TAG", "login: 异常 ${e.toString()}")
-            }
-        }
+        loadDataState(_register,
+            loader = { loginRepository.requestRegister(userName, userPwd, againPsd) })
     }
 }

@@ -86,3 +86,10 @@ kapt rootProject.depsLibs.hilt_android_compiler
     }
 }
 ```
+
+## epoxy的使用 
+1. 一些注解的含义
+   1. TextProp 将此注释用于文本
+   2. CallbackProp 将此注释用于单击侦听器或其他回调
+   3. ModelProp 用于注释任何类型
+   4. AfterPropsSet 多个道具设置后,在进行一些初始化操作.视图现实之后调用.

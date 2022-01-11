@@ -17,7 +17,7 @@ class LoginInterceptor : IInterceptor {
     override fun process(postcard: Postcard?, callback: InterceptorCallback?) {
         val path = postcard?.path
         Log.e("TAG", "process: $path")
-        if (false) {
+        if (true) {
             //已经登陆
             //不拦截直接过
             callback?.onContinue(postcard)

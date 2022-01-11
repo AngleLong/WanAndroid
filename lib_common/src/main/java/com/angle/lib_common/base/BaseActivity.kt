@@ -40,6 +40,8 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity(),
         //设置状态栏
         initStatusBar()
 
+        initView()
+
         //规范相应的配置
         initConfig()
     }
@@ -75,6 +77,10 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity(),
 //            statusBarColor(R.color.purple_200)
 //            navigationBarColor(R.color.purple_200)
 //        }
+    }
+
+    open fun initView() {
+
     }
 
 
@@ -153,5 +159,12 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity(),
 
     override fun onSwipeBackLayoutExecuted() {
         mSwipeBackHelper?.swipeBackward();
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        dataBinding?.let {
+            dataBinding == null
+        }
     }
 }

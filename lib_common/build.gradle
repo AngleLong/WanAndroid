@@ -2,9 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-//    id 'dagger.hilt.android.plugin'
 }
-//apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk rootProject.android.compileSdk
@@ -31,12 +29,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
     api rootProject.depsLibs.core_ktx
     api rootProject.depsLibs.appcompat
     api rootProject.depsLibs.material
+
+    //Activity/Fragment的ktx
+    api  rootProject.depsLibs.activity_ktx
+    api  rootProject.depsLibs.fragment_ktx
 
     //状态栏
     api rootProject.depsLibs.immersionbar
@@ -54,17 +60,16 @@ dependencies {
     api rootProject.depsLibs.lifecycle_viewmodel_ktx
     api rootProject.depsLibs.lifecycle_runtime_ktx
     api rootProject.depsLibs.lifecycle_livedata_ktx
-//    implementation rootProject.depsLibs.hilt_android
-//    kapt rootProject.depsLibs.hilt_android_compiler
-    implementation rootProject.depsLibs.hilt_android
-    kapt rootProject.depsLibs.hilt_android_compiler
-//    api rootProject.depsLibs.hilt_lifecycle_viewmodel
-//    kapt rootProject.depsLibs.hilt_compiler
 
-    api 'androidx.activity:activity-ktx:1.3.1'
-    api 'androidx.fragment:fragment-ktx:1.3.2'
+    //hilt
+//    implementation rootProject.depsLibs.hilt_android
+    kapt rootProject.depsLibs.hilt_android_compiler
+
+    //epoxy
+    api rootProject.depsLibs.epoxy
+
+    //刷线
+    api rootProject.depsLibs.swiperefreshlayout
 
     api project(path: ':lib_net')
-
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

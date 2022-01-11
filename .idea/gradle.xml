@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_common" />
             <option value="$PROJECT_DIR$/lib_home" />
+            <option value="$PROJECT_DIR$/lib_image" />
             <option value="$PROJECT_DIR$/lib_login" />
             <option value="$PROJECT_DIR$/lib_net" />
             <option value="$PROJECT_DIR$/lib_router" />

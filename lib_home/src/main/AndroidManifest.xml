@@ -4,6 +4,10 @@
 
     <application>
         <activity
+            android:name=".BottomActivity"
+            android:exported="true"
+            android:label="@string/title_activity_bottom" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Home.WanAndroid" />
