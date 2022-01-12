@@ -1,15 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp">
+<layout xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/titleTv"
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#223344"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:layout_margin="10pt"
+        android:elevation="20pt"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10pt">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20pt">
+
+            <TextView
+                android:id="@+id/titleTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20pt"
+                android:layout_marginEnd="20pt"
+                android:textColor="@color/black"
+                android:textSize="30pt"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="这是一个标题的位置" />
+
+            <TextView
+                android:id="@+id/niceDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10pt"
+                android:layout_marginTop="10pt"
+                android:layout_marginEnd="10pt"
+                android:textColor="@color/black"
+                android:textSize="20pt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:text="1天前" />
+
+            <TextView
+                android:id="@+id/authorTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30pt"
+                android:layout_marginEnd="10pt"
+                android:textColor="@color/black"
+                android:textSize="20pt"
+                app:layout_constraintLeft_toLeftOf="@id/titleTv"
+                app:layout_constraintTop_toBottomOf="@id/titleTv"
+                tools:text="作者" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

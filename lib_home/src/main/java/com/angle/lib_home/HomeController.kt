@@ -3,13 +3,14 @@ package com.angle.lib_home
 import com.airbnb.epoxy.EpoxyController
 import com.angle.lib_home.ui.home.Data
 import com.angle.lib_home.ui.home.HomeBannerBean
+import javax.inject.Inject
 
 /**
  * TypedEpoxyController  指定类型的控制器
  * EpoxyController 默认的控制器
  * AsyncEpoxyController 后台运行的控制器
  */
-class HomeController : EpoxyController() {
+class HomeController @Inject constructor() : EpoxyController() {
 
     /**
      * 设置BannerList数据,设置后刷新

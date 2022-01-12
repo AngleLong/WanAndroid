@@ -61,12 +61,13 @@ dependencies {
     api rootProject.depsLibs.lifecycle_runtime_ktx
     api rootProject.depsLibs.lifecycle_livedata_ktx
 
-    //hilt
+    //hilt 这里不用hilt了因为在上层模块都有引用
 //    implementation rootProject.depsLibs.hilt_android
-    kapt rootProject.depsLibs.hilt_android_compiler
+//    kapt rootProject.depsLibs.hilt_android_compiler
 
     //epoxy
     api rootProject.depsLibs.epoxy
+    api rootProject.depsLibs.epoxy_databinding
 
     //刷线
     api rootProject.depsLibs.swiperefreshlayout

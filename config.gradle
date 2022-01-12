@@ -49,6 +49,7 @@ ext {
             banner = "2.2.2",
             epoxy = "4.6.3",
             epoxy_processor = "4.6.3",
+            epoxy_databinding = "4.6.3",
 
             swiperefreshlayout = "1.1.0",
 
@@ -106,6 +107,7 @@ ext {
             //epoxy
             epoxy                     : "com.airbnb.android:epoxy:$epoxy",
             epoxy_processor           : "com.airbnb.android:epoxy-processor:$epoxy_processor",
+            epoxy_databinding         : "com.airbnb.android:epoxy-databinding:$epoxy_databinding",
 
             //刷新
             swiperefreshlayout        : "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout",

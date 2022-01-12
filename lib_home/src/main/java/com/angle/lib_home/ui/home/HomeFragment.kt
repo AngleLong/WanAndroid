@@ -6,13 +6,15 @@ import com.angle.lib_home.HomeController
 import com.angle.lib_home.R
 import com.angle.lib_home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private val homeViewModel by viewModels<HomeViewModel>()
 
-    private var homeController: HomeController = HomeController()
+    @Inject
+    lateinit var homeController: HomeController
 
     override fun configLayoutRes(): Int = R.layout.fragment_home
 
