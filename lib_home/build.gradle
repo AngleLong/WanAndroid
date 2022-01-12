@@ -66,6 +66,4 @@ dependencies {
     api project(path: ':lib_image')
 
     implementation rootProject.depsLibs.banner
-    implementation rootProject.depsLibs.navigation_fragment_ktx
-    implementation rootProject.depsLibs.navigation_ui_ktx
 }

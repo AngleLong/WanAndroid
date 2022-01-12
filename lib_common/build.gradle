@@ -39,6 +39,8 @@ dependencies {
     api rootProject.depsLibs.core_ktx
     api rootProject.depsLibs.appcompat
     api rootProject.depsLibs.material
+    api rootProject.depsLibs.navigation_fragment_ktx
+    api rootProject.depsLibs.navigation_ui_ktx
 
     //Activity/Fragment的ktx
     api  rootProject.depsLibs.activity_ktx
