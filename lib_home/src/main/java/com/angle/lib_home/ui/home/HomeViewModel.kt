@@ -1,16 +1,24 @@
 package com.angle.lib_home.ui.home
 
-import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.angle.lib_common.bean.BaseModel
 import com.angle.lib_common.utils.loadDataState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val homeRepository: HomeRepository) : ViewModel() {
 
     private val _bannerModel = BaseModel<List<HomeBannerBean>>()
-    val bannerModel = _bannerModel
+
+    private val _bannerModelNew = MutableLiveData<List<HomeBannerBean>>()
+
+    var bannerModel: MutableLiveData<List<HomeBannerBean>> = _bannerModelNew
 
     private val _homeList = BaseModel<HomeListBean>()
     val homeList = _homeList
@@ -18,10 +26,59 @@ class HomeViewModel @Inject constructor(private val homeRepository: HomeReposito
     fun requestBanner() {
         loadDataState(_bannerModel, loader = { homeRepository.requestBanner() })
     }
-
-    fun requestList(pager: Int) {
-        loadDataState(_homeList, loader = { homeRepository.requestHomeList(pager) })
+//
+//    fun  requestList(): LiveData<List<Data>>{
+//        loadDataState(homeList, loader = { homeRepository.requestHomeListLiveData() })
+//    }
+//
+    fun requestListFlow(): Flow<PagingData<Data>> {
+        return homeRepository.requestHomeListFlow().cachedIn(viewModelScope)
+//        loadDataState(_homeList, loader = { homeRepository.requestHomeList(pager) })
     }
+
+    fun requestListLivedata(): LiveData<PagingData<Data>> {
+        return homeRepository.requestHomeListLiveData().cachedIn(viewModelScope)
+    }
+
+
+
+
+    /**
+     * 方式1: 获取banner对象
+     */
+    fun requestBannerFlow() {
+        viewModelScope.launch {
+            homeRepository.requestBannerFlow()
+                .collectLatest {
+                    bannerModel.postValue(it)
+                }
+        }
+    }
+
+//    /**
+//     *  方式二: 获取banner对象
+//     */
+//    fun requestBannerFlow() = liveData {
+//        homeRepository.requestBannerFlow()
+//            .collectLatest {
+//                emit(it)
+//            }
+//    }
+
+//    /**
+//     * 方式三: 获取banner对象
+//     */
+//    fun requestBannerFlow() = homeRepository.requestBannerFlow()
+//        .onStart {
+//            Log.e("requestBannerFlow", "onStart: 开始请求")
+//        }
+//        .catch {
+//            Log.e("requestBannerFlow", "catch: 出现异常")
+//        }
+//        .onCompletion {
+//            Log.e("requestBannerFlow", "onCompletion: 请求完成")
+//        }
+//        .asLiveData()
 
 //    //todo 这里其实可以两个一起请求的 但是这里考虑到底部分页和顶部banner不应该每次都一起请求,所以这里就不这么处理了
 //    private val _homeModel = BaseModel<Pair<List<HomeBannerBean>, HomeListBean>>()

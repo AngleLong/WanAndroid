@@ -1,6 +1,11 @@
 package com.angle.lib_front
 
 import android.annotation.SuppressLint
+import android.util.Log
+import androidx.arch.core.util.Function
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.lifecycleScope
 import com.angle.lib_common.base.BaseActivity
 import com.angle.lib_front.databinding.ActivitySplashBinding
@@ -22,7 +27,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     override fun initConfig() {
         lifecycleScope.launch {
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
                 delay(3000)
                 openLoginPage()
             }

@@ -42,6 +42,7 @@ ext {
             hilt_android_compiler = "2.38.1",
             hilt_lifecycle_viewmodel = "1.0.0-alpha03",
             hilt_compiler = "1.0.0-beta01",
+            paging_runtime = "3.0.1",
 
             navigation_fragment_ktx = "2.3.5",
             navigation_ui_ktx = "2.3.5",
@@ -50,6 +51,7 @@ ext {
             epoxy = "4.6.3",
             epoxy_processor = "4.6.3",
             epoxy_databinding = "4.6.3",
+            epoxy_paging3 = "4.6.3",
 
             swiperefreshlayout = "1.1.0",
 
@@ -100,6 +102,7 @@ ext {
             hilt_compiler             : "androidx.hilt:hilt-compiler:$hilt_compiler",
             navigation_fragment_ktx   : "androidx.navigation:navigation-fragment-ktx:$navigation_fragment_ktx",
             navigation_ui_ktx         : "androidx.navigation:navigation-ui-ktx:$navigation_ui_ktx",
+            paging_runtime            : "androidx.paging:paging-runtime:$paging_runtime",
 
             //banner
             banner                    : "io.github.youth5201314:banner:$banner",
@@ -108,6 +111,8 @@ ext {
             epoxy                     : "com.airbnb.android:epoxy:$epoxy",
             epoxy_processor           : "com.airbnb.android:epoxy-processor:$epoxy_processor",
             epoxy_databinding         : "com.airbnb.android:epoxy-databinding:$epoxy_databinding",
+            epoxy_paging3             : "com.airbnb.android:epoxy-paging3:$epoxy_paging3",
+
 
             //刷新
             swiperefreshlayout        : "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout",

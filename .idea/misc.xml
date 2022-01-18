@@ -22,7 +22,9 @@
         <entry key="lib_home/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.3675925925925926" />
         <entry key="lib_home/src/main/res/layout/activity_bottom.xml" value="0.2848731884057971" />
         <entry key="lib_home/src/main/res/layout/activity_home.xml" value="0.17798913043478262" />
+        <entry key="lib_home/src/main/res/layout/footer_item.xml" value="0.13120567375886524" />
         <entry key="lib_home/src/main/res/layout/fragment_home.xml" value="0.23097826086956522" />
+        <entry key="lib_home/src/main/res/layout/header_item.xml" value="0.13120567375886524" />
         <entry key="lib_home/src/main/res/layout/item_home_my.xml" value="0.47717842323651455" />
         <entry key="lib_home/src/main/res/layout/model_item_banner.xml" value="0.1" />
         <entry key="lib_home/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />

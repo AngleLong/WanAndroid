@@ -2,6 +2,7 @@ package com.angle.lib_home
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import com.airbnb.epoxy.ModelProp
@@ -27,6 +28,7 @@ class BannerModelView @JvmOverloads constructor(
 
     @ModelProp
     fun setShowData(item: List<HomeBannerBean>) {
+        Log.e("TAG", "setShowData: " )
         imageAdapter.setDatas(item)
     }
 }
