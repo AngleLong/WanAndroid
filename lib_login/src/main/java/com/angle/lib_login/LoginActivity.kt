@@ -2,15 +2,15 @@ package com.angle.lib_login
 
 import android.util.Log
 import android.view.View
-import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.angle.lib_common.base.LoadingStatus.FINISH
 import com.angle.lib_common.base.LoadingStatus.START
 import com.angle.lib_common.base.WanBaseActivity
+import com.angle.lib_common.utils.SPUtils
 import com.angle.lib_common.utils.showToast
 import com.angle.lib_login.databinding.ActivityLoginBinding
 import com.angle.lib_router.LOGIN_LOGIN
-import com.angle.lib_router.openHomePage
 import com.gyf.immersionbar.ktx.immersionBar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +18,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LoginActivity : WanBaseActivity<ActivityLoginBinding>() {
 
-    private val loginViewModel by viewModels<LoginViewModel>()
+    private val loginViewModel by lazy {
+        ViewModelProvider(this)[LoginViewModel::class.java]
+    }
 
     override fun configLayoutRes(): Int = R.layout.activity_login
 
@@ -43,8 +45,19 @@ class LoginActivity : WanBaseActivity<ActivityLoginBinding>() {
         loginViewModel.loginModel.data.observe(this@LoginActivity) {
             Log.e("TAG", "正确: $it")
 
-            //TODO 这里保存好用户的相关信息,直接跳转到主页去
-            openHomePage()
+            /**
+             * 设置登陆成功
+             */
+            SPUtils.put(this@LoginActivity, "isLogin", true)
+//            openHomePage()
+            //这里通过回调进行处理响应的逻辑
+            LoginCallbackOpt.getLoginCallBack()?.loginSuccess()
+            finish()
+        }
+
+        loginViewModel.loginModel.error.observe(this@LoginActivity) {
+            LoginCallbackOpt.getLoginCallBack()?.loginError()
+            finish()
         }
 
         loginViewModel.loginModel.error.observe(this@LoginActivity) {

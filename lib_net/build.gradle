@@ -37,7 +37,8 @@ dependencies {
 
     //网络请求
     api rootProject.depsLibs.retrofit
-    implementation rootProject.depsLibs.converter_gson
-    implementation rootProject.depsLibs.okhttp
-    implementation rootProject.depsLibs.logging_interceptor
+    api rootProject.depsLibs.converter_gson
+    api rootProject.depsLibs.okhttp
+    api rootProject.depsLibs.logging_interceptor
+    api rootProject.depsLibs.kotlinx_coroutines_android
 }

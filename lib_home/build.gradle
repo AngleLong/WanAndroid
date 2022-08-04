@@ -62,7 +62,7 @@ dependencies {
     kapt rootProject.depsLibs.epoxy_processor
     api project(path: ':lib_common')
     api project(path: ':lib_router')
-    api project(path: ':lib_net')
+    api project(path: ':lib_netlocal')
     api project(path: ':lib_image')
 
     implementation rootProject.depsLibs.banner

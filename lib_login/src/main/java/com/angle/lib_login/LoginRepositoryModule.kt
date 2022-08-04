@@ -1,6 +1,6 @@
 package com.angle.lib_login
 
-import com.angle.lib_net.RetrofitFactory
+import com.angle.lib_net.HiNet
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,6 @@ object LoginRepositoryModule {
     @Singleton
     @Provides
     fun provideLoginApi(): LoginApi {
-        return RetrofitFactory.getDefaultService(LoginConfigUtils.baseUrl,
-            clazz = LoginApi::class.java)
+        return HiNet.createRetrofitApi(LoginApi::class.java)
     }
 }

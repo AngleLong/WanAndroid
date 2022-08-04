@@ -1,6 +1,6 @@
 package com.angle.lib_home
 
-import com.angle.lib_net.RetrofitFactory
+import com.angle.lib_net.HiNet
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ object HomeRepositoryModule {
     @Singleton
     @Provides
     fun provideHomeApi(): HomeApi {
-        return RetrofitFactory.getDefaultService(HomeConfigUtils.baseUrl,
-            clazz = HomeApi::class.java)
+        //返回相应的API信息用来网络请求
+        return HiNet.createRetrofitApi(HomeApi::class.java)
     }
 }

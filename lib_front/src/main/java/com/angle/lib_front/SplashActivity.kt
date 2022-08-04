@@ -9,6 +9,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.lifecycleScope
 import com.angle.lib_common.base.BaseActivity
 import com.angle.lib_front.databinding.ActivitySplashBinding
+import com.angle.lib_router.openHomePage
 import com.angle.lib_router.openLoginPage
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.coroutines.*
@@ -29,7 +30,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
                 delay(3000)
-                openLoginPage()
+//                openLoginPage()
+                //直接打开首页,暂时不处理登陆问题
+                openHomePage()
             }
         }
     }

@@ -48,9 +48,7 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity(),
 
 
     private fun initSwipeBackFinish() {
-        Log.e("TAG", ":1 ")
         mSwipeBackHelper = BGASwipeBackHelper(this, this).apply {
-            Log.e("TAG", ":3 ${isEnableSwipe()}")
             setSwipeBackEnable(isEnableSwipe())
             setIsOnlyTrackingLeftEdge(true)
 //            // 设置滑动返回是否可用。默认值为 true
@@ -158,7 +156,7 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity(),
     }
 
     override fun onSwipeBackLayoutExecuted() {
-        mSwipeBackHelper?.swipeBackward();
+        mSwipeBackHelper?.swipeBackward()
     }
 
     override fun onDestroy() {

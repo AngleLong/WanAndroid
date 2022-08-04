@@ -4,8 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
+import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.angle.lib_home.databinding.ItemHomeMyBinding
@@ -17,10 +19,15 @@ class HomeMyView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     private val itemHomeMyBinding: ItemHomeMyBinding =
-        DataBindingUtil.inflate(LayoutInflater.from(context),
+        DataBindingUtil.inflate(
+            LayoutInflater.from(context),
             R.layout.item_home_my,
             this,
-            true)
+            true
+        )
+
+    var itemClickListener: (() -> Unit)? = null
+        @CallbackProp set
 
     @ModelProp
     fun setShowData(data: Data) {
@@ -36,5 +43,10 @@ class HomeMyView @JvmOverloads constructor(
 
         //设置
         itemHomeMyBinding.niceDateTv.text = data.niceDate
+
+        //设置点击事件
+        itemHomeMyBinding.root.setOnClickListener {
+            itemClickListener?.invoke()
+        }
     }
 }

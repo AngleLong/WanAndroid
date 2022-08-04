@@ -1,4 +1,4 @@
-package com.angle.lib_net
+package com.angle.lib_netlocal
 
 import okhttp3.*
 

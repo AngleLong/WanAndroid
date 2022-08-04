@@ -3,10 +3,13 @@ package com.angle.wanandroid
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import javax.inject.Inject
 
-class MainViewModel(private val userRepository: UserRepository) : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val userRepository: UserRepository) : ViewModel() {
 
     fun login(userName: String, userPwd: String) {
         viewModelScope.launch {

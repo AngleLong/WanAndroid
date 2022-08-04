@@ -25,7 +25,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="login_animation1.json"
+            app:lottie_fileName="test.json"
             app:lottie_loop="true" />
 
         <com.google.android.material.textfield.TextInputLayout

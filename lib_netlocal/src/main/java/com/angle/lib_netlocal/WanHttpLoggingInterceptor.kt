@@ -1,4 +1,4 @@
-package com.angle.lib_net
+package com.angle.lib_netlocal
 
 import android.util.Log
 import okhttp3.logging.HttpLoggingInterceptor

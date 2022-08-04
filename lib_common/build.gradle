@@ -76,5 +76,8 @@ dependencies {
     //刷线
     api rootProject.depsLibs.swiperefreshlayout
 
-    api project(path: ':lib_net')
+    api project(path: ':lib_netlocal')
+
+//    api 'com.alibaba.android:alpha:1.0.0.1@aar'
+    api "androidx.viewpager2:viewpager2:1.0.0"
 }

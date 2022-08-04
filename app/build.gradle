@@ -6,6 +6,16 @@ plugins {
 }
 
 android {
+
+    //在devBuild的情况下不编译多种屏幕密度density和二进制接口abi
+    if (rootProject.hasProperty("devBuild")) {
+        splits.abi.enable = false
+        splits.density.enable = false
+        //禁止png压缩
+        aaptOptions.cruncherEnabled = false
+    }
+
+
     compileSdk rootProject.android.compileSdk
 
     defaultConfig {
@@ -14,6 +24,9 @@ android {
         targetSdk rootProject.android.targetSdk
         versionCode rootProject.android.versionCode
         versionName rootProject.android.versionName
+
+        //只保留汉语的string.xml文件和xxhdpi的资源
+        resConfigs("zh", "xxhdpi")
 
         kapt {
             javacOptions {

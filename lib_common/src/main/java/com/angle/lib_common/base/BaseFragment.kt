@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
 
     var dataBinding: DB? = null
+    private var isFirstLoad = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,14 +26,23 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
         //设置状态栏
         initStatusBar()
 
-        initView()
-
-        initData()
-
-        //规范相应的配置
-        initConfig()
+        initView(dataBinding?.root, savedInstanceState)
 
         return dataBinding?.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        isFirstLoad = true;
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (isFirstLoad) {
+            initData();
+            initEvent();
+            isFirstLoad = false
+        }
     }
 
     /**
@@ -44,7 +54,7 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
     open fun initStatusBar() {
     }
 
-    open fun initView() {
+    open fun initView(rootView: View?, savedInstanceState: Bundle?) {
 
     }
 
@@ -55,5 +65,5 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
     /**
      * 规范相应的配置
      */
-    abstract fun initConfig()
+    abstract fun initEvent()
 }

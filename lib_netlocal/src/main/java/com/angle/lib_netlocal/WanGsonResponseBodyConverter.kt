@@ -1,8 +1,6 @@
-package com.angle.lib_net
+package com.angle.lib_netlocal
 
 import com.google.gson.Gson
-import com.google.gson.TypeAdapter
-import com.google.gson.reflect.TypeToken
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Converter
