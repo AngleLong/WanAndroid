@@ -39,8 +39,8 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
     override fun onResume() {
         super.onResume()
         if (isFirstLoad) {
-            initData();
-            initEvent();
+            initData()
+            initEvent()
             isFirstLoad = false
         }
     }
@@ -63,7 +63,7 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
     }
 
     /**
-     * 规范相应的配置
+     * 这个是进行相应的监听,我认为监听需要在这里重新开始.
      */
     abstract fun initEvent()
 }

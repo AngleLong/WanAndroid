@@ -57,7 +57,7 @@ android {
 dependencies {
     api project(path: ':lib_common')
     api project(path: ':lib_router')
-    api project(path: ':lib_netlocal')
+    api project(path: ':business:lib_netlocal')
     api project(path: ':lib_image')
 
     implementation rootProject.depsLibs.hilt_android

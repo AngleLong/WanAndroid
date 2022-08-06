@@ -3,23 +3,15 @@ package com.angle.lib_home.ui.home
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.angle.lib_common.base.BaseFragment
-import com.angle.lib_home.HomeController
 import com.angle.lib_home.R
 import com.angle.lib_home.databinding.FragmentHomeBinding
 import com.angle.lib_login.LoginCallBack
 import com.angle.lib_router.login
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 
 //https://juejin.cn/post/6997708252901277709
@@ -35,10 +27,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private val homeController: HomePagerListController by lazy {
-        HomePagerListController{
+        HomePagerListController {
             login(object : LoginCallBack {
                 override fun loginSuccess() {
                     Log.e("TAG", "loginSuccess: ")
+
+                    //这里做一下测试,看是否会相应的回调
+                    homeViewModel.testAddNotificationItem()
                 }
 
                 override fun loginError() {

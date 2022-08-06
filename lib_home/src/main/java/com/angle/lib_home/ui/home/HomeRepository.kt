@@ -47,3 +47,22 @@ class HomeRepository @Inject constructor(private val homeApi: HomeApi) {
             }).liveData
     }
 }
+
+//public class ContextUtils {
+//    public static Application getApplication(){
+//        try {
+//            Method method = Class.forName("android.app.ActivityThread").getDeclaredMethod("currentApplication");
+//            return (Application) method.invoke(null, null);
+//        } catch (NoSuchMethodException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        } catch (InvocationTargetException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return null;
+//    }
+//}

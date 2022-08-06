@@ -3,11 +3,11 @@ package com.angle.lib_common.utils
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.angle.lib_common.base.LoadingStatus
+import com.angle.lib_common.bean.BaseFlowModel
 import com.angle.lib_common.bean.BaseModel
 import com.angle.lib_common.bean.ErrorModel
 import com.angle.lib_netlocal.ApiException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
@@ -34,19 +34,12 @@ fun <T> ViewModel.loadDataState(
     }
 }
 
-
-data class BaseFlowModel<T>(
-    val data: MutableSharedFlow<T?> = MutableSharedFlow(),
-    val error: MutableSharedFlow<ErrorModel> = MutableSharedFlow(),
-    val loadingStatus: MutableSharedFlow<LoadingStatus> = MutableSharedFlow(),
-)
-
 fun <T> ViewModel.loadDataStateFlow(
     baseModel: BaseFlowModel<T>,
     loader: suspend (ioScope: CoroutineScope) -> T
 ) {
     viewModelScope.launch {
-        flow<BaseModel<T>> {
+        flow<BaseFlowModel<T>> {
 
             baseModel.loadingStatus.emit(LoadingStatus.START)
 

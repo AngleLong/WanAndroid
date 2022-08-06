@@ -7,9 +7,12 @@ import androidx.paging.cachedIn
 import com.angle.lib_common.bean.BaseModel
 import com.angle.lib_common.utils.loadDataState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
+import kotlin.random.Random
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val homeRepository: HomeRepository) : ViewModel() {
@@ -94,4 +97,16 @@ class HomeViewModel @Inject constructor(private val homeRepository: HomeReposito
 //            }
 //        )
 //    }
+
+
+    fun testAddNotificationItem() {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                com.angle.lib_db.AppDatabase.getAppDatabase().messageDao()
+                    .insertAll(com.angle.lib_db.MessageBean("这是一条消息 ${Random.nextLong()}"))
+            } catch (e: Exception) {
+                Log.e("TAG", "testAddNotificationItem: 插入异常 $e")
+            }
+        }
+    }
 }

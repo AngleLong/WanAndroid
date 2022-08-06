@@ -43,8 +43,8 @@ dependencies {
     api rootProject.depsLibs.navigation_ui_ktx
 
     //Activity/Fragment的ktx
-    api  rootProject.depsLibs.activity_ktx
-    api  rootProject.depsLibs.fragment_ktx
+    api rootProject.depsLibs.activity_ktx
+    api rootProject.depsLibs.fragment_ktx
 
     //状态栏
     api rootProject.depsLibs.immersionbar
@@ -73,11 +73,11 @@ dependencies {
     api rootProject.depsLibs.epoxy_databinding
     api rootProject.depsLibs.epoxy_paging3
 
-    //刷线
+    //刷新
     api rootProject.depsLibs.swiperefreshlayout
 
-    api project(path: ':lib_netlocal')
+    api project(path: ':business:lib_netlocal')
 
-//    api 'com.alibaba.android:alpha:1.0.0.1@aar'
-    api "androidx.viewpager2:viewpager2:1.0.0"
+    //viewpager2
+    api rootProject.depsLibs.viewpager2_version
 }

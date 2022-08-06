@@ -62,8 +62,12 @@ dependencies {
     kapt rootProject.depsLibs.epoxy_processor
     api project(path: ':lib_common')
     api project(path: ':lib_router')
-    api project(path: ':lib_netlocal')
+    api project(path: ':business:lib_netlocal')
     api project(path: ':lib_image')
+    api project(path: ':business:lib_db')
 
     implementation rootProject.depsLibs.banner
+
+    //https://www.jianshu.com/p/1e237b252b12 多模块开发的时候,要在每个module中添加这个注解处理器
+    kapt rootProject.depsLibs.room_compiler_version
 }

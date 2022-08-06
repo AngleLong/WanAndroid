@@ -11,13 +11,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/business" />
+            <option value="$PROJECT_DIR$/business/lib_db" />
+            <option value="$PROJECT_DIR$/business/lib_netlocal" />
             <option value="$PROJECT_DIR$/lib_common" />
             <option value="$PROJECT_DIR$/lib_front" />
             <option value="$PROJECT_DIR$/lib_home" />
             <option value="$PROJECT_DIR$/lib_image" />
             <option value="$PROJECT_DIR$/lib_login" />
             <option value="$PROJECT_DIR$/lib_net" />
-            <option value="$PROJECT_DIR$/lib_netlocal" />
             <option value="$PROJECT_DIR$/lib_router" />
           </set>
         </option>

@@ -1,9 +1,5 @@
 package com.angle.lib_net
 
-import android.text.TextUtils
-import okhttp3.OkHttpClient
-import java.lang.RuntimeException
-
 /**
  * 整个网络请求的管理类
  * 这里看看使用单例和非单例对后面的影响有多大

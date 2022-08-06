@@ -30,9 +30,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
                 delay(3000)
-//                openLoginPage()
-                //直接打开首页,暂时不处理登陆问题
                 openHomePage()
+                finish()
             }
         }
     }

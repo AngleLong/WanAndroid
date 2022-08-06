@@ -2,7 +2,6 @@ package com.angle.lib_home
 
 import android.view.View
 import androidx.core.view.forEach
-import androidx.core.view.get
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.viewpager2.widget.ViewPager2
@@ -84,5 +83,8 @@ class HomeActivity : WanBaseActivity<ActivityHomeBinding>() {
 
     override fun isEnableSwipe(): Boolean {
         return false
+    }
+
+    override fun onBackPressed() {
     }
 }

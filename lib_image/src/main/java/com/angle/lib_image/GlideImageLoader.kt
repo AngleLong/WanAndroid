@@ -2,7 +2,6 @@ package com.angle.lib_image
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.GlideContext
 
 /**
  * Glide的具体实现类
