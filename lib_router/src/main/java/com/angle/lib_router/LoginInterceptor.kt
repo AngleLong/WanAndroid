@@ -7,6 +7,7 @@ import com.alibaba.android.arouter.facade.annotation.Interceptor
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
+import com.angle.lib_router.login.openLoginPage
 
 @Interceptor(priority = 8, name = "登陆")
 class LoginInterceptor : IInterceptor {

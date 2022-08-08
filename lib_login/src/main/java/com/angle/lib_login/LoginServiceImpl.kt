@@ -3,9 +3,11 @@ package com.angle.lib_login
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.angle.lib_common.utils.SPUtils
-import com.angle.lib_router.LOGIN_SERVICE
+import com.angle.lib_router.login.LOGIN_SERVICE
+import com.angle.lib_router.login.LoginCallBack
+import com.angle.lib_router.login.LoginCallbackOpt
 import com.angle.lib_router.login.LoginService
-import com.angle.lib_router.openLoginPage
+import com.angle.lib_router.login.openLoginPage
 
 @Route(path = LOGIN_SERVICE, name = "登陆服务")
 class LoginServiceImpl : LoginService {

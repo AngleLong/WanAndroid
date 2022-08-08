@@ -1,19 +1,9 @@
 package com.angle.lib_home.ui.home
 
-import android.util.Log
 import com.airbnb.epoxy.EpoxyAsyncUtil
 import com.airbnb.epoxy.EpoxyModel
 import com.airbnb.epoxy.paging3.PagingDataEpoxyController
 import com.angle.lib_home.*
-import com.angle.lib_login.LoginCallBack
-import com.angle.lib_router.login
-import dagger.Binds
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
-import javax.inject.Inject
-import javax.inject.Qualifier
 
 /**
  * 主页的控制器

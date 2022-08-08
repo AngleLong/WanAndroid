@@ -10,7 +10,8 @@ import com.angle.lib_common.base.WanBaseActivity
 import com.angle.lib_common.utils.SPUtils
 import com.angle.lib_common.utils.showToast
 import com.angle.lib_login.databinding.ActivityLoginBinding
-import com.angle.lib_router.LOGIN_LOGIN
+import com.angle.lib_router.login.LOGIN_LOGIN
+import com.angle.lib_router.login.LoginCallbackOpt
 import com.gyf.immersionbar.ktx.immersionBar
 import dagger.hilt.android.AndroidEntryPoint
 

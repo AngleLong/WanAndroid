@@ -8,8 +8,8 @@ import androidx.lifecycle.lifecycleScope
 import com.angle.lib_common.base.BaseFragment
 import com.angle.lib_home.R
 import com.angle.lib_home.databinding.FragmentHomeBinding
-import com.angle.lib_login.LoginCallBack
-import com.angle.lib_router.login
+import com.angle.lib_router.login.LoginCallBack
+import com.angle.lib_router.login.login
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

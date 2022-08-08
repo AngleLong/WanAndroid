@@ -20,5 +20,4 @@ interface MessageBeanDao {
 
     @Query("Select * From message")
     suspend fun getAllBean(): List<MessageBean>
-
 }

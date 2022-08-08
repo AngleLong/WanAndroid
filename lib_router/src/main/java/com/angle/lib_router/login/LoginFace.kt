@@ -1,8 +1,6 @@
-package com.angle.lib_router
+package com.angle.lib_router.login
 
 import com.alibaba.android.arouter.launcher.ARouter
-import com.angle.lib_login.LoginCallBack
-import com.angle.lib_router.login.LoginService
 
 private const val Login_GROUP = "login"
 
